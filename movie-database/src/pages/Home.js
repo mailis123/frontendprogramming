@@ -1,35 +1,38 @@
-// Import Navbar, Hero, Movies, Footer Component
-import Navbar from "../components/Navbar/Navbar";
-import Hero from "../components/Hero/Hero";
-import Movies from "../components/Movies/Movies";
-import Footer from "../components/Footer/Footer";
+// Lakukan import Navbar, Footer Component
+import React from 'react';
+import AddMovieForm from '../components/AddMovieForm/AddMovieForm';
+import Footer from '../components/Footer/Footer';
+import Hero from '../components/Hero/Hero';
+import Movies from '../components/Movies/Movies';
+import Navbar from '../components/Navbar/Navbar';
 
 /**
- * Membuat Component Main.
- * Menampung Hero dan Movies
+ * Membuat Component Main
+ * Untuk menyimpan Component Hero, Movies dan AddMovieForm
  */
 function Main() {
   return (
-    <main>
+    <div>
       <Hero />
       <Movies />
-    </main>
+      <AddMovieForm />
+    </div>
   );
 }
 
 /**
- * Membuat Component Home.
- * Menampilkan Halaman Home.
- * Menampung Navbar, Main, dan Footer Component
+ * Buat Component Home
+ * Untuk menyimpan Navbar, Main, & Footer Component
  */
 function Home() {
   return (
-    <>
+    <div>
       <Navbar />
       <Main />
       <Footer />
-    </>
+    </div>
   );
 }
 
+// Lakukan export Home
 export default Home;
