@@ -1,114 +1,41 @@
 import styles from "./Movies.module.css";
+// import data from "../../utils/constans/data";
+import Movie from "../Movie/Movie";
+// import { useState } from "react";
+import { nanoid } from "nanoid";
 
-function Movies() {
-  return (
-    <div className={styles.container}>
-      <section className={styles.movies}>
-        <h2 className={styles.movies__title}>Latest Movies</h2>
-        <div className={styles.movie__container}>
-          <div className={styles.movie}>
-            <img
-              className={styles.movie__image}
-              src="https://picsum.photos/300/400"
-              alt=""
-            />
-            <h3 className={styles.movie__title}>Movie Title</h3>
-            <p className={styles.movie__date}>Date Title</p>
-          </div>
-          <div className={styles.movie}>
-            <img
-              className={styles.movie__image}
-              src="https://picsum.photos/300/400"
-              alt=""
-            />
-            <h3 className={styles.movie__title}>Movie Title</h3>
-            <p className={styles.movie__date}>Date Title</p>
-          </div>
-          <div className={styles.movie}>
-            <img
-              className={styles.movie__image}
-              src="https://picsum.photos/300/400"
-              alt=""
-            />
-            <h3 className={styles.movie__title}>Movie Title</h3>
-            <p className={styles.movie__date}>Date Title</p>
-          </div>
-          <div className={styles.movie}>
-            <img
-              className={styles.movie__image}
-              src="https://picsum.photos/300/400"
-              alt=""
-            />
-            <h3 className={styles.movie__title}>Movie Title</h3>
-            <p className={styles.movie__date}>Date Title</p>
-          </div>
-          <div className={styles.movie}>
-            <img
-              className={styles.movie__image}
-              src="https://picsum.photos/300/400"
-              alt=""
-            />
-            <h3 className={styles.movie__title}>Movie Title</h3>
-            <p className={styles.movie__date}>Date Title</p>
-          </div>
-          <div className={styles.movie}>
-            <img
-              className={styles.movie__image}
-              src="https://picsum.photos/300/400"
-              alt=""
-            />
-            <h3 className={styles.movie__title}>Movie Title</h3>
-            <p className={styles.movie__date}>Date Title</p>
-          </div>
-          <div className={styles.movie}>
-            <img
-              className={styles.movie__image}
-              src="https://picsum.photos/300/400"
-              alt=""
-            />
-            <h3 className={styles.movie__title}>Movie Title</h3>
-            <p className={styles.movie__date}>Date Title</p>
-          </div>
-          <div className={styles.movie}>
-            <img
-              className={styles.movie__image}
-              src="https://picsum.photos/300/400"
-              alt=""
-            />
-            <h3 className={styles.movie__title}>Movie Title</h3>
-            <p className={styles.movie__date}>Date Title</p>
-          </div>
-          <div className={styles.movie}>
-            <img
-              className={styles.movie__image}
-              src="https://picsum.photos/300/400"
-              alt=""
-            />
-            <h3 className={styles.movie__title}>Movie Title</h3>
-            <p className={styles.movie__date}>Date Title</p>
-          </div>
-          <div className={styles.movie}>
-            <img
-              className={styles.movie__image}
-              src="https://picsum.photos/300/400"
-              alt=""
-            />
-            <h3 className={styles.movie__title}>Movie Title</h3>
-            <p className={styles.movie__date}>Date Title</p>
-          </div>
-          <div className={styles.movie}>
-            <img
-              className={styles.movie__image}
-              src="https://picsum.photos/300/400"
-              alt=""
-            />
-            <h3 className={styles.movie__title}>Movie Title</h3>
-            <p className={styles.movie__date}>Date Title</p>
-          </div>
+
+
+
+function Movies(props) {
+    const { movies, setMovies } = props;
+
+    function handleSubmit() {
+        // e.preventDefault();
+        const movie = {
+            id: nanoid(),
+            title: 'Movie One',
+            year: Date,
+            type: "Movie",
+            poster: "https://m.media-amazon.com/images/I/71nXlVqnGdL._AC_SY879_.jpg",
+        };
+
+        setMovies([...movies, movie]);
+    }
+
+    return (
+        <div className={styles.container}>
+            <section className={styles.movies}>
+                <h2 className={styles.movies__title}>Latest Movies</h2>
+                <div className={styles.movie__container}>
+                    {movies.map((movie) => {
+                        return <Movie key={movie.id} movie={movie} />;
+                    })}
+                </div>
+                <button onClick={handleSubmit}>Add movie</button>
+            </section>
         </div>
-      </section>
-    </div>
-  );
+    );
 }
 
 export default Movies;
